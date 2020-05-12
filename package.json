@@ -1,0 +1,41 @@
+{
+    "name": "undefined",
+    "version": "1.4.2",
+    "displayName": "undefined",
+    "description": "A dark, slightly opinionated, but otherwise no-nonsense theme for Visual Studio Code",
+    "publisher": "christianhg",
+    "scripts": {
+        "build": "npm run prettier-production && node undefined.js",
+        "prettier": "prettier --write '{*,**/*}.{md,js,ts}'",
+        "prettier-production": "prettier --list-different '{*,**/*}.{md,js,ts}'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/christianhg/vscode-theme-undefined"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "VSCode",
+        "Themes"
+    ],
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "icon": "icon.png",
+    "contributes": {
+        "themes": [
+            {
+                "label": "undefined",
+                "uiTheme": "vs-dark",
+                "path": "./themes/undefined-color-theme.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "color": "^3.1.0",
+        "jsonfile": "^5.0.0",
+        "prettier": "^1.19.1"
+    }
+}
