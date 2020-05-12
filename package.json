@@ -1,17 +1,17 @@
 {
-    "name": "undefined",
-    "version": "1.4.2",
-    "displayName": "undefined",
-    "description": "A dark, slightly opinionated, but otherwise no-nonsense theme for Visual Studio Code",
+    "name": "vscode-theme-stibo-dx",
+    "version": "0.0.1",
+    "displayName": "Stibo DX",
+    "description": "A Stibo DX theme for Visual Studio Code",
     "publisher": "christianhg",
     "scripts": {
-        "build": "npm run prettier-production && node undefined.js",
+        "build": "npm run prettier-production && node vscode-theme-stibo-dx.js",
         "prettier": "prettier --write '{*,**/*}.{md,js,ts}'",
         "prettier-production": "prettier --list-different '{*,**/*}.{md,js,ts}'"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/christianhg/vscode-theme-undefined"
+        "url": "https://github.com/christianhg/vscode-theme-stibo-dx"
     },
     "categories": [
         "Themes"
@@ -27,9 +27,9 @@
     "contributes": {
         "themes": [
             {
-                "label": "undefined",
+                "label": "Stibo DX",
                 "uiTheme": "vs-dark",
-                "path": "./themes/undefined-color-theme.json"
+                "path": "./themes/stibo-dx.json"
             }
         ]
     },

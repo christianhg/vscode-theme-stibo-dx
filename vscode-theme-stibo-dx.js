@@ -1,7 +1,7 @@
 const color = require('color');
 const jsonfile = require('jsonfile');
 
-const name = 'undefined';
+const name = 'stibo-dx';
 const type = 'dark';
 
 // https://color.hailpixel.com/#1E2127,282C34,5C6370,ABB2BF,E06C75,98C379,D19A66,61AFEF,C678DD,56B6C2
@@ -253,7 +253,7 @@ const theme = {
   ],
 };
 
-const file = './themes/undefined-color-theme.json';
+const file = `./themes/${name}.json`;
 
 jsonfile.writeFile(file, theme, { spaces: 2 }, err => {
   console.error(err);
