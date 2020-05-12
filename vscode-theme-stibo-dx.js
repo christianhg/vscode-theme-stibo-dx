@@ -11,11 +11,13 @@ const grey = color('#5C6370');
 const lightGrey = color('#ABB2BF');
 
 const blue = color('#141A5B');
-const turquoise = color('#4DE8D1');
+const darkBlue = color('#111750');
 const lightBlue = color('#CFEAF7');
+const turquoise = color('#4DE8D1');
 const red = color('#FF6242');
 const green = color('#005D60');
 const orange = color('#FD983D');
+const white = color('#FFFFFF');
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
@@ -65,16 +67,22 @@ const yaml = {
 const jsts = {
   annotations: [
     'cast.expr',
+    'entity.name.type.ts',
     'keyword.operator.type',
     'meta.return.type',
     'meta.type.annotation',
     'meta.type.parameters',
     'support.type',
   ],
-  importexport: ['keyword.control.as', 'keyword.control.export', 'meta.import'],
+  importexport: [
+    'constant.language.import-export-all.ts',
+    'keyword.control.as',
+    'keyword.control.export',
+    'meta.import',
+  ],
 };
 
-const nonEssentials = [
+const punctuation = [
   'punctuation.section.property-list.begin.bracket.curly',
   'punctuation.section.property-list.end.bracket.curly',
   'punctuation.terminator.rule',
@@ -85,7 +93,9 @@ const nonEssentials = [
   'punctuation.definition.binding-pattern',
   'punctuation.support.type.property-name.begin',
   'punctuation.support.type.property-name.end',
+];
 
+const nonEssentials = [
   ...css.nonEssentials,
   ...html.doctype,
   ...jsts.annotations,
@@ -146,21 +156,33 @@ const attentionSeekers = [
  * need to reset.
  */
 const defaults = [
-  'entity.name.type.module',
-  'keyword.control.flow',
-  'keyword.operator.new',
-  'meta.brace.round',
-  'punctuation.definition.template-expression',
-  'support.class',
-  'constant.language.import-export-all',
-  'meta.array.literal',
-  'meta.arrow',
-  'meta.definition.property',
+  // 'entity.name.function',
+  // 'entity.name.type.alias',
+  // 'entity.name.type.module',
+  // 'keyword.control.flow',
+  // 'keyword.operator.new',
+  // 'meta.brace.round',
+  // 'meta.definition.function',
+  // 'punctuation.definition.template-expression',
+  // 'support.class',
+  // 'support.variable.property',
+  // 'constant.language.import-export-all',
+  // 'meta.array.literal',
+  // 'meta.arrow',
+  // 'meta.definition.property',
+  // 'meta.objectliteral',
+  // 'support.constant',
+  // 'support.type.property-name',
+  // 'variable.object.property',
+  // 'variable.other',
+  // 'variable.parameter',
+  'entity.name.type',
+  // 'entity.name.type.class',
+  'meta.definition.function',
+  'meta.definition.method',
   'meta.objectliteral',
-  'support.constant',
-  'support.type.property-name',
-  'variable.object.property',
-  'variable.other',
+  'support.variable',
+  'variable',
 
   ...css.defaults,
   ...yaml.defaults,
@@ -181,76 +203,79 @@ const theme = {
     /**
      * Scrollbar:
      */
-    'scrollbarSlider.background': darkGrey.darken(0.4).hex(),
-    'scrollbarSlider.activeBackground': darkGrey.darken(0.4).hex(),
-    'scrollbarSlider.hoverBackground': darkGrey.darken(0.4).hex(),
+    'scrollbarSlider.background': blue.darken(0.4).hex(),
+    'scrollbarSlider.activeBackground': blue.darken(0.4).hex(),
+    'scrollbarSlider.hoverBackground': blue.darken(0.4).hex(),
 
     /**
      * Editor:
      */
-    'editor.background': darkGrey.hex(),
-    'editor.foreground': lightGrey.hex(),
-    'editorLineNumber.foreground': grey.hex(),
+    'editor.background': blue.hex(),
+    'editor.foreground': blue.lighten(2).hex(),
+    'editorLineNumber.foreground': blue.lighten(2).hex(),
 
     /**
      * Selections:
      */
-    'editorCursor.foreground': lightGrey.hex(),
+    'editorCursor.foreground': white.hex(),
     'editor.findMatchBackground': lightBlue.hex(),
     'editor.findMatchHighlightBackground': lightBlue.hex(),
-    'editor.lineHighlightBackground': darkGrey.lighten(0.2).hex(),
-    'editor.selectionBackground': darkGrey.lighten(0.2).hex(),
-    'editor.selectionHighlightBackground': darkGrey.lighten(0.2).hex(),
+    'editor.lineHighlightBackground': blue.lighten(0.2).hex(),
+    'editor.selectionBackground': blue.lighten(0.2).hex(),
+    'editor.selectionHighlightBackground': blue.lighten(0.2).hex(),
 
     /**
      * Input fields:
      */
-    'input.background': darkGrey.darken(0.4).hex(),
-    'input.border': darkGrey.darken(0.4).hex(),
-    focusBorder: darkGrey.darken(0.4).hex(),
+    'input.background': blue.darken(0.4).hex(),
+    'input.border': blue.darken(0.4).hex(),
+    focusBorder: blue.darken(0.4).hex(),
 
     /**
      * Left-side menu:
      */
-    'activityBar.background': darkGrey.darken(0.4).hex(),
-    'activityBar.foreground': lightGrey.hex(),
+    'activityBar.background': blue.darken(0.4).hex(),
+    'activityBar.foreground': white.hex(),
+
     /**
      * Left-side bar:
      */
-    'sideBar.background': darkGrey.darken(0.2).hex(),
-    'sideBarSectionHeader.background': darkGrey.darken(0.4).hex(),
+    'sideBar.background': blue.darken(0.2).hex(),
+    'sideBarSectionHeader.background': blue.darken(0.4).hex(),
 
     /**
      * Bottom bar:
      */
-    'statusBar.background': darkGrey.darken(0.4).hex(),
-    'statusBar.foreground': lightGrey.hex(),
-    'statusBarItem.hoverBackground': darkGrey.darken(0.2).hex(),
+    'statusBar.background': blue.darken(0.4).hex(),
+    'statusBar.foreground': lightBlue.hex(),
+    'statusBarItem.hoverBackground': blue.darken(0.2).hex(),
 
     /**
      * Top bar:
      */
-    'titleBar.activeBackground': darkGrey.darken(0.4).hex(),
-    'titleBar.activeForeground': lightGrey.hex(),
-    'titleBar.inactiveBackground': darkGrey.darken(0.4).hex(),
+    'titleBar.activeBackground': blue.darken(0.4).hex(),
+    'titleBar.activeForeground': blue.lighten(0.2).hex(),
+    'titleBar.inactiveBackground': blue.darken(0.4).hex(),
     'titleBar.inactiveForeground': lightGrey.hex(),
 
     /**
      * Tab bar:
      */
-    'editorGroupHeader.tabsBorder': darkGrey.darken(0.2).hex(),
-    'editorGroupHeader.tabsBackground': darkGrey.darken(0.2).hex(),
-    'tab.border': darkGrey.darken(0.2).hex(),
-    'tab.activeBackground': darkGrey.hex(),
-    'tab.inactiveBackground': darkGrey.darken(0.2).hex(),
+    'editorGroupHeader.tabsBorder': darkBlue.hex(),
+    'editorGroupHeader.tabsBackground': darkBlue.hex(),
+    'tab.border': darkBlue.hex(),
+    'tab.activeBackground': blue.hex(),
+    'tab.inactiveBackground': darkBlue.hex(),
   },
   tokenColors: [
-    tokenColor('Non-essentials', nonEssentials, blue),
-    tokenColor('Literals', literals, green),
+    tokenColor('Punctuation', punctuation, blue.lighten(2)),
+    tokenColor('Non-essentials', nonEssentials, blue.lighten(2)),
+    // tokenColor('Annotations', jsts.annotations, blue.lighten(2)),
+    tokenColor('Literals', literals, turquoise),
     tokenColor('Attention seekers', attentionSeekers, red),
     tokenColor('Operators', operators, orange),
-    tokenColor('Function calls', functions, turquoise),
-    tokenColor('Defaults', defaults, lightGrey),
+    tokenColor('Function calls', functions, lightBlue),
+    tokenColor('Defaults', defaults, lightBlue),
   ],
 };
 
