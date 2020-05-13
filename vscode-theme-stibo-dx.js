@@ -4,7 +4,7 @@ const jsonfile = require('jsonfile');
 const name = 'stibo-dx';
 const type = 'dark';
 
-// https://color.hailpixel.com/#141A5B,4DE8D1,CFEAF7,FF6242,005D60,FD983D
+// hhttps://color.hailpixel.com/#111750,141A5B,4DE8D1,CFEAF7,FF6242,005D60,FD983D
 const black = color('#1E2127');
 const darkGrey = color('#282C34');
 const grey = color('#5C6370');
