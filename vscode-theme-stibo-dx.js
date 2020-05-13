@@ -201,11 +201,75 @@ const theme = {
   type,
   colors: {
     /**
-     * Scrollbar:
+     * Reference: https://code.visualstudio.com/api/references/theme-color
      */
-    'scrollbarSlider.background': blue.darken(0.4).hex(),
-    'scrollbarSlider.activeBackground': blue.darken(0.4).hex(),
-    'scrollbarSlider.hoverBackground': blue.darken(0.4).hex(),
+
+    /**
+     * Base colors
+     */
+    // Overall border color for focused elements. This color is only used if not overridden by a component.
+    focusBorder: darkBlue.hex(),
+    // Overall foreground color. This color is only used if not overridden by a component.
+    foreground: lightBlue.hex(),
+    // Shadow color of widgets such as Find/Replace inside the editor.
+    'widget.shadow': darkBlue.darken(0.2).hex(),
+    // Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
+    'selection.background': darkBlue.darken(0.2).hex(),
+    // Foreground color for description text providing additional information, for example for a label.
+    descriptionForeground: turquoise.hex(),
+    // Overall foreground color for error messages (this color is only used if not overridden by a component).
+    errorForeground: red.hex(),
+    // The default color for icons in the workbench
+    'icon.foreground': turquoise.hex(),
+
+    /**
+     * Window border
+     * The theme colors for VS Code window border.
+     */
+    // Border color for the active (focused) window.
+    'window.activeBorder': turquoise.hex(),
+    // Border color for the inactive (unfocused) windows.
+    'window.inactiveBorder': lightBlue.hex(),
+
+    /**
+     * Text colors
+     * Colors inside a text document, such as the welcome page.
+     */
+    // Background color for block quotes in text.
+    'textBlockQuote.background': darkBlue.hex(),
+    // Border color for block quotes in text.
+    'textBlockQuote.border': darkBlue.hex(),
+    // Background color for code blocks in text.
+    'textCodeBlock.background': darkBlue.hex(),
+    // Foreground color for links in text when clicked on and on mouse hover.
+    'textLink.activeForeground': turquoise.hex(),
+    // Foreground color for links in text.
+    'textLink.foreground': turquoise.hex(),
+    // Foreground color for preformatted text segments.
+    'textPreformat.foreground': turquoise.hex(),
+    // Color for text separators
+    'textSeparator.foreground': turquoise.hex(),
+
+    /**
+     * Breadcrumbs
+     */
+    'breadcrumb.foreground': lightBlue.hex(),
+    'breadcrumb.background': darkBlue.hex(),
+    'breadcrumb.focusForeground': lightBlue.hex(),
+    'breadcrumb.activeSelectionForeground': lightBlue.hex(),
+    'breadcrumbPicker.background': darkBlue.hex(),
+
+    /**
+     * Scrollbar control
+     */
+    // Scrollbar slider shadow to indicate that the view is scrolled.
+    'scrollbar.shadow': darkBlue.darken(0.2).hex(),
+    // Scrollbar slider background color when clicked on.
+    'scrollbarSlider.activeBackground': darkBlue.darken(0.4).hex(),
+    // Scrollbar slider background color.
+    'scrollbarSlider.background': darkBlue.darken(0.2).hex(),
+    // Scrollbar slider background color when hovering.
+    'scrollbarSlider.hoverBackground': darkBlue.darken(0.4).hex(),
 
     /**
      * Editor:
@@ -232,23 +296,83 @@ const theme = {
     focusBorder: blue.darken(0.4).hex(),
 
     /**
-     * Left-side menu:
+     * Activity bar:
      */
-    'activityBar.background': blue.darken(0.4).hex(),
-    'activityBar.foreground': white.hex(),
+    'activityBar.background': darkBlue.darken(0.2).hex(),
+    'activityBar.dropBackground': darkBlue.darken(0.4).hex(),
+    'activityBar.foreground': turquoise.hex(),
+    'activityBar.inactiveForeground': lightBlue.hex(),
+    'activityBar.border': darkBlue.hex(),
+    'activityBarBadge.background': turquoise.hex(),
+    'activityBarBadge.foreground': darkBlue.hex(),
+    'activityBar.activeBorder': darkBlue.darken(0.2).hex(),
+    'activityBar.activeBackground': darkBlue.darken(0.2).hex(),
+    'activityBar.activeFocusBorder': lightBlue.hex(),
 
     /**
-     * Left-side bar:
+     * Side bar:
      */
-    'sideBar.background': blue.darken(0.2).hex(),
-    'sideBarSectionHeader.background': blue.darken(0.4).hex(),
+    'sideBar.background': darkBlue.hex(),
+    'sideBar.foreground': lightBlue.hex(),
+    'sideBar.border': darkBlue.hex(),
+    'sideBar.dropBackground': darkBlue.darken(0.2).hex(),
+    'sideBarTitle.foreground': lightBlue.hex(),
+    'sideBarSectionHeader.background': darkBlue.darken(0.2).hex(),
+    'sideBarSectionHeader.foreground': lightBlue.hex(),
+    'sideBarSectionHeader.border': darkBlue.hex(),
+
+    /**
+     * Lists and trees:
+     */
+    // List/Tree background color for the selected item when the list/tree is active.
+    'list.activeSelectionBackground': darkBlue.darken(0.2).hex(),
+    // List/Tree foreground color for the selected item when the list/tree is active.
+    'list.activeSelectionForeground': turquoise.hex(),
+    // List/Tree drag and drop background when moving items around using the mouse.
+    'list.dropBackground': darkBlue.hex(),
+    // List/Tree background color for the focused item when the list/tree is active.
+    'list.focusBackground': darkBlue.hex(),
+    // List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+    'list.focusForeground': turquoise.hex(),
+    // List/Tree foreground color of the match highlights when searching inside the list/tree.
+    'list.highlightForeground': turquoise.hex(),
+    // List/Tree background when hovering over items using the mouse.
+    'list.hoverBackground': darkBlue.darken(0.2).hex(),
+    // List/Tree foreground when hovering over items using the mouse.
+    'list.hoverForeground': lightBlue.hex(),
+    // List/Tree background color for the selected item when the list/tree is inactive.
+    'list.inactiveSelectionBackground': darkBlue.darken(0.2).hex(),
+    // List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+    'list.inactiveSelectionForeground': turquoise.hex(),
+    // List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
+    'list.inactiveFocusBackground': darkBlue.hex(),
+    // List/Tree foreground color for invalid items, for example an unresolved root in explorer.
+    'list.invalidItemForeground': red.hex(),
+    // Foreground color of list items containing errors.
+    'list.errorForeground': red.hex(),
+    // Foreground color of list items containing warnings.
+    'list.warningForeground': orange.hex(),
+    // List/Tree Filter background color of typed text when searching inside the list/tree.
+    'listFilterWidget.background': darkBlue.hex(),
+    // List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
+    'listFilterWidget.outline': darkBlue.hex(),
+    // List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+    'listFilterWidget.noMatchesOutline': red.hex(),
+    // Background color of the filtered matches in lists and trees.
+    'list.filterMatchBackground': darkBlue.darken(0.2).hex(),
+    // Border color of the filtered matches in lists and trees.
+    'list.filterMatchBorder': lightBlue.hex(),
+    // Tree Widget's stroke color for indent guides.
+    'tree.indentGuidesStroke': darkBlue.hex(),
+    // List/Tree foreground color for items that are deemphasized.
+    'list.deemphasizedForeground': darkBlue.hex(),
 
     /**
      * Bottom bar:
      */
-    'statusBar.background': blue.darken(0.4).hex(),
+    'statusBar.background': darkBlue.darken(0.2).hex(),
     'statusBar.foreground': lightBlue.hex(),
-    'statusBarItem.hoverBackground': blue.darken(0.2).hex(),
+    'statusBarItem.hoverBackground': darkBlue.hex(),
 
     /**
      * Top bar:
@@ -266,6 +390,31 @@ const theme = {
     'tab.border': darkBlue.hex(),
     'tab.activeBackground': blue.hex(),
     'tab.inactiveBackground': darkBlue.hex(),
+
+    /**
+     * Buttons
+     */
+    // Button background color.
+    'button.background': darkBlue.hex(),
+    // Button foreground color.
+    'button.foreground': turquoise.hex(),
+    // Button background color when hovering.
+    'button.hoverBackground': darkBlue.darken(0.2).hex(),
+    // Background color of checkbox widget.
+    'checkbox.background': darkBlue.hex(),
+    // Foreground color of checkbox widget.
+    'checkbox.foreground': turquoise.hex(),
+    // Border color of checkbox widget.
+    'checkbox.border': lightBlue.hex(),
+
+    /**
+     * Badge
+     * Badges are small information labels, for example, search results count.
+     */
+    // Badge foreground color.
+    'badge.foreground': turquoise.hex(),
+    // Badge background color.
+    'badge.background': darkBlue.hex(),
   },
   tokenColors: [
     tokenColor('Punctuation', punctuation, blue.lighten(2)),
