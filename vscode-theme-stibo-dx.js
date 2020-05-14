@@ -18,6 +18,7 @@ const red = color('#FF6242');
 const green = color('#005D60');
 const orange = color('#FD983D');
 const white = color('#FFFFFF');
+const yellow = color('#D7D75B');
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
@@ -251,6 +252,70 @@ const theme = {
     'textSeparator.foreground': turquoise.hex(),
 
     /**
+     * Buttons
+     */
+    // Button background color.
+    'button.background': darkBlue.hex(),
+    // Button foreground color.
+    'button.foreground': turquoise.hex(),
+    // Button background color when hovering.
+    'button.hoverBackground': darkBlue.darken(0.2).hex(),
+    // Background color of checkbox widget.
+    'checkbox.background': darkBlue.hex(),
+    // Foreground color of checkbox widget.
+    'checkbox.foreground': turquoise.hex(),
+    // Border color of checkbox widget.
+    'checkbox.border': lightBlue.hex(),
+
+    /**
+     * Dropdown control
+     * A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the Dropdown control is not used on macOS currently.
+     */
+    // Dropdown background.
+    'dropdown.background': darkBlue.hex(),
+    // Dropdown list background.
+    'dropdown.listBackground': darkBlue.hex(),
+    // Dropdown border.
+    'dropdown.border': darkBlue.darken(0.2).hex(),
+    // Dropdown foreground
+    'dropdown.foreground': lightBlue.hex(),
+
+    /**
+     * Input control
+     * Colors for input controls such as in the Search view or the Find/Replace dialog.
+     */
+    // Input box background.
+    'input.background': darkBlue.hex(),
+    // Input box border.
+    'input.border': darkBlue.hex(),
+    // Input box foreground.
+    'input.foreground': lightBlue.hex(),
+    // Input box foreground color for placeholder text.
+    'input.placeholderForeground': lightBlue.hex(),
+    // Background color of activated options in input fields.
+    'inputOption.activeBackground': darkBlue.hex(),
+    // Border color of activated options in input fields.
+    'inputOption.activeBorder': lightBlue.hex(),
+    // Input validation background color for error severity.
+    'inputValidation.errorBackground': darkBlue.hex(),
+    // Input validation foreground color for error severity.
+    'inputValidation.errorForeground': red.hex(),
+    // Input validation border color for error severity.
+    'inputValidation.errorBorder': red.hex(),
+    // Input validation background color for information severity.
+    'inputValidation.infoBackground': darkBlue.hex(),
+    // Input validation foreground color for information severity.
+    'inputValidation.infoForeground': turquoise.hex(),
+    // Input validation border color for information severity.
+    'inputValidation.infoBorder': turquoise.hex(),
+    // Input validation background color for information warning.
+    'inputValidation.warningBackground': darkBlue.hex(),
+    // Input validation foreground color for warning severity.
+    'inputValidation.warningForeground': orange.hex(),
+    // Input validation border color for warning severity
+    'inputValidation.warningBorder': orange.hex(),
+
+    /**
      * Breadcrumbs
      */
     'breadcrumb.foreground': lightBlue.hex(),
@@ -282,11 +347,13 @@ const theme = {
      * Selections:
      */
     'editorCursor.foreground': white.hex(),
-    'editor.findMatchBackground': lightBlue.hex(),
-    'editor.findMatchHighlightBackground': lightBlue.hex(),
-    'editor.lineHighlightBackground': blue.lighten(0.2).hex(),
-    'editor.selectionBackground': blue.lighten(0.2).hex(),
-    'editor.selectionHighlightBackground': blue.lighten(0.2).hex(),
+    // Color of the current search match.
+    'editor.findMatchBackground': '#4DE8D17F',
+    // Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.
+    'editor.findMatchHighlightBackground': '#4DE8D17F',
+    'editor.lineHighlightBackground': darkBlue.hex(),
+    'editor.selectionBackground': darkBlue.darken(0.2).hex(),
+    'editor.selectionHighlightBackground': darkBlue.darken(0.2).hex(),
 
     /**
      * Input fields:
@@ -339,7 +406,7 @@ const theme = {
     // List/Tree background when hovering over items using the mouse.
     'list.hoverBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground when hovering over items using the mouse.
-    'list.hoverForeground': lightBlue.hex(),
+    'list.hoverForeground': turquoise.hex(),
     // List/Tree background color for the selected item when the list/tree is inactive.
     'list.inactiveSelectionBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
@@ -390,22 +457,6 @@ const theme = {
     'tab.border': darkBlue.hex(),
     'tab.activeBackground': blue.hex(),
     'tab.inactiveBackground': darkBlue.hex(),
-
-    /**
-     * Buttons
-     */
-    // Button background color.
-    'button.background': darkBlue.hex(),
-    // Button foreground color.
-    'button.foreground': turquoise.hex(),
-    // Button background color when hovering.
-    'button.hoverBackground': darkBlue.darken(0.2).hex(),
-    // Background color of checkbox widget.
-    'checkbox.background': darkBlue.hex(),
-    // Foreground color of checkbox widget.
-    'checkbox.foreground': turquoise.hex(),
-    // Border color of checkbox widget.
-    'checkbox.border': lightBlue.hex(),
 
     /**
      * Badge
