@@ -52,8 +52,9 @@
     "scrollbarSlider.activeBackground": "#0A0E30",
     "scrollbarSlider.background": "#0E1240",
     "scrollbarSlider.hoverBackground": "#0A0E30",
+    "progressBar.background": "#4DE8D1",
     "editor.background": "#141A5B",
-    "editor.foreground": "#6E77DF",
+    "editor.foreground": "#C9CCF3",
     "editorLineNumber.foreground": "#6E77DF",
     "editorCursor.foreground": "#FFFFFF",
     "editor.findMatchBackground": "#4DE8D17F",
@@ -165,6 +166,21 @@
       }
     },
     {
+      "name": "Annotations",
+      "scope": [
+        "cast.expr",
+        "entity.name.type.ts",
+        "keyword.operator.type",
+        "meta.return.type",
+        "meta.type.annotation",
+        "meta.type.parameters",
+        "support.type"
+      ],
+      "settings": {
+        "foreground": "#6E77DF"
+      }
+    },
+    {
       "name": "Literals",
       "scope": [
         "constant.language",
@@ -178,7 +194,7 @@
         "string.unquoted.plain.out.yaml"
       ],
       "settings": {
-        "foreground": "#4DE8D1"
+        "foreground": "#FD983D"
       }
     },
     {
@@ -219,7 +235,7 @@
         "keyword.operator.ternary"
       ],
       "settings": {
-        "foreground": "#FD983D"
+        "foreground": "#6E77DF"
       }
     },
     {
@@ -232,25 +248,34 @@
         "support.function.misc.css"
       ],
       "settings": {
-        "foreground": "#CFEAF7"
+        "foreground": "#4DE8D1"
       }
     },
     {
       "name": "Defaults",
       "scope": [
-        "entity.name.type",
-        "meta.definition.function",
-        "meta.definition.method",
+        "entity.name.type.module",
+        "keyword.control.flow",
+        "keyword.operator.new",
+        "meta.brace.round",
+        "punctuation.definition.template-expression",
+        "support.class",
+        "constant.language.import-export-all",
+        "meta.array.literal",
+        "meta.arrow",
+        "meta.definition.property",
         "meta.objectliteral",
-        "support.variable",
-        "variable",
+        "support.constant",
+        "support.type.property-name",
+        "variable.object.property",
+        "variable.other",
         "punctuation.section.function.begin.bracket.round.css",
         "punctuation.section.function.end.bracket.round.css",
         "support.type.vendored.property-name.css",
         "entity.name.tag.yaml"
       ],
       "settings": {
-        "foreground": "#CFEAF7"
+        "foreground": "#C9CCF3"
       }
     }
   ]

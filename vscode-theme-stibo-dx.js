@@ -157,33 +157,50 @@ const attentionSeekers = [
  * need to reset.
  */
 const defaults = [
-  // 'entity.name.function',
-  // 'entity.name.type.alias',
-  // 'entity.name.type.module',
-  // 'keyword.control.flow',
-  // 'keyword.operator.new',
-  // 'meta.brace.round',
+  // // 'entity.name.function',
+  // // 'entity.name.type.alias',
+  // // 'entity.name.type.module',
+  // // 'keyword.control.flow',
+  // // 'keyword.operator.new',
+  // // 'meta.brace.round',
+  // // 'meta.definition.function',
+  // // 'punctuation.definition.template-expression',
+  // // 'support.class',
+  // // 'support.variable.property',
+  // // 'constant.language.import-export-all',
+  // // 'meta.array.literal',
+  // // 'meta.arrow',
+  // // 'meta.definition.property',
+  // // 'meta.objectliteral',
+  // // 'support.constant',
+  // // 'support.type.property-name',
+  // // 'variable.object.property',
+  // // 'variable.other',
+  // // 'variable.parameter',
+  // 'entity.name.type',
+  // // 'entity.name.type.class',
   // 'meta.definition.function',
-  // 'punctuation.definition.template-expression',
-  // 'support.class',
-  // 'support.variable.property',
-  // 'constant.language.import-export-all',
-  // 'meta.array.literal',
-  // 'meta.arrow',
-  // 'meta.definition.property',
+  // 'meta.definition.method',
   // 'meta.objectliteral',
-  // 'support.constant',
   // 'support.type.property-name',
-  // 'variable.object.property',
-  // 'variable.other',
-  // 'variable.parameter',
-  'entity.name.type',
-  // 'entity.name.type.class',
-  'meta.definition.function',
-  'meta.definition.method',
+  // 'support.variable',
+  // 'variable',
+
+  'entity.name.type.module',
+  'keyword.control.flow',
+  'keyword.operator.new',
+  'meta.brace.round',
+  'punctuation.definition.template-expression',
+  'support.class',
+  'constant.language.import-export-all',
+  'meta.array.literal',
+  'meta.arrow',
+  'meta.definition.property',
   'meta.objectliteral',
-  'support.variable',
-  'variable',
+  'support.constant',
+  'support.type.property-name',
+  'variable.object.property',
+  'variable.other',
 
   ...css.defaults,
   ...yaml.defaults,
@@ -337,10 +354,43 @@ const theme = {
     'scrollbarSlider.hoverBackground': darkBlue.darken(0.4).hex(),
 
     /**
+     * Progress bar
+     */
+    // Background color of the progress bar shown for long running operations.
+    'progressBar.background': turquoise.hex(),
+
+    /**
+     * Minimap
+     * The Minimap shows a minified version of the current file.
+     */
+    // // Highlight color for matches from search within files.
+    // 'minimap.findMatchHighlight': darkBlue.hex(),
+    // // Highlight color for the editor selection.
+    // 'minimap.selectionHighlight': darkBlue.hex(),
+    // // Highlight color for errors within the editor.
+    // 'minimap.errorHighlight': darkBlue.hex(),
+    // // Highlight color for warnings within the editor.
+    // 'minimap.warningHighlight': darkBlue.hex(),
+    // // Minimap background color.
+    // 'minimap.background': darkBlue.hex(),
+    // // Minimap slider background color.
+    // 'minimapSlider.background': darkBlue.hex(),
+    // // Minimap slider background color when hovering.
+    // 'minimapSlider.hoverBackground': darkBlue.hex(),
+    // // Minimap slider background color when clicked on.
+    // 'minimapSlider.activeBackground': darkBlue.hex(),
+    // // Minimap gutter color for added content.
+    // 'minimapGutter.addedBackground': darkBlue.hex(),
+    // // Minimap gutter color for modified content.
+    // 'minimapGutter.modifiedBackground': darkBlue.hex(),
+    // // Minimap gutter color for deleted content
+    // 'minimapGutter.deletedBackground': darkBlue.hex(),
+
+    /**
      * Editor:
      */
     'editor.background': blue.hex(),
-    'editor.foreground': blue.lighten(2).hex(),
+    'editor.foreground': blue.lighten(3).hex(),
     'editorLineNumber.foreground': blue.lighten(2).hex(),
 
     /**
@@ -470,12 +520,12 @@ const theme = {
   tokenColors: [
     tokenColor('Punctuation', punctuation, blue.lighten(2)),
     tokenColor('Non-essentials', nonEssentials, blue.lighten(2)),
-    // tokenColor('Annotations', jsts.annotations, blue.lighten(2)),
-    tokenColor('Literals', literals, turquoise),
+    tokenColor('Annotations', jsts.annotations, blue.lighten(2)),
+    tokenColor('Literals', literals, orange),
     tokenColor('Attention seekers', attentionSeekers, red),
-    tokenColor('Operators', operators, orange),
-    tokenColor('Function calls', functions, lightBlue),
-    tokenColor('Defaults', defaults, lightBlue),
+    tokenColor('Operators', operators, blue.lighten(2)),
+    tokenColor('Function calls', functions, turquoise),
+    tokenColor('Defaults', defaults, blue.lighten(3)),
   ],
 };
 
