@@ -5,10 +5,6 @@ const name = 'stibo-dx';
 const type = 'dark';
 
 // https://color.hailpixel.com/#111750,141A5B,4DE8D1,CFEAF7,FF6242,005D60,FD983D
-const black = color('#1E2127');
-const darkGrey = color('#282C34');
-const grey = color('#5C6370');
-const lightGrey = color('#ABB2BF');
 
 const blue = color('#141A5B');
 const darkBlue = color('#111750');
@@ -18,7 +14,9 @@ const red = color('#FF6242');
 const green = color('#005D60');
 const orange = color('#FD983D');
 const white = color('#FFFFFF');
-const yellow = color('#D7D75B');
+
+const foreground = lightBlue;
+const background = blue;
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
@@ -228,7 +226,7 @@ const theme = {
     // Overall border color for focused elements. This color is only used if not overridden by a component.
     focusBorder: darkBlue.hex(),
     // Overall foreground color. This color is only used if not overridden by a component.
-    foreground: lightBlue.hex(),
+    foreground: foreground.hex(),
     // Shadow color of widgets such as Find/Replace inside the editor.
     'widget.shadow': darkBlue.darken(0.2).hex(),
     // Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
@@ -509,15 +507,15 @@ const theme = {
     /**
      * Editor:
      */
-    'editor.background': blue.hex(),
-    'editor.foreground': blue.lighten(3).hex(),
+    'editor.background': background.hex(),
+    'editor.foreground': foreground.hex(),
     'editorLineNumber.foreground': blue.lighten(2).hex(),
     // Color of the active editor line number.
     'editorLineNumber.activeForeground': turquoise.hex(),
     // The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
     'editorCursor.background': darkBlue.hex(),
     // Color of the editor cursor.
-    'editorCursor.foreground': white.hex(),
+    'editorCursor.foreground': turquoise.hex(),
     'editor.selectionBackground': darkBlue.darken(0.2).hex(),
     // Color of the selected text for high contrast.
     // 'editor.selectionForeground':
@@ -698,19 +696,50 @@ const theme = {
     'list.deemphasizedForeground': darkBlue.hex(),
 
     /**
-     * Bottom bar:
+     * Status Bar colors
+     * The Status Bar is shown in the bottom of the workbench.
      */
+    // 'Standard Status Bar background color.
     'statusBar.background': darkBlue.darken(0.2).hex(),
+    // 'Status Bar foreground color.
     'statusBar.foreground': lightBlue.hex(),
+    // 'Status Bar border color separating the Status Bar and editor.
+    'statusBar.border': darkBlue.hex(),
+    // 'Status Bar background color when a program is being debugged.
+    'statusBar.debuggingBackground': darkBlue.darken(0.2).hex(),
+    // 'Status Bar foreground color when a program is being debugged.
+    'statusBar.debuggingForeground': lightBlue.hex(),
+    // 'Status Bar border color separating the Status Bar and editor when a program is being debugged.
+    'statusBar.debuggingBorder': red.hex(),
+    // 'Status Bar foreground color when no folder is opened.
+    'statusBar.noFolderForeground': blue.hex(),
+    // 'Status Bar background color when no folder is opened.
+    'statusBar.noFolderBackground': turquoise.hex(),
+    // 'Status Bar border color separating the Status Bar and editor when no folder is opened.
+    'statusBar.noFolderBorder': turquoise.hex(),
+    // 'Status Bar item background color when clicking.
+    'statusBarItem.activeBackground': darkBlue.hex(),
+    // 'Status Bar item background color when hovering.
     'statusBarItem.hoverBackground': darkBlue.hex(),
+    // 'Status Bar prominent items foreground color.
+    'statusBarItem.prominentForeground': turquoise.hex(),
+    // 'Status Bar prominent items background color.
+    'statusBarItem.prominentBackground': darkBlue.hex(),
+    // 'Status Bar prominent items background color when hovering.
+    'statusBarItem.prominentHoverBackground': darkBlue.hex(),
+    // 'Background color for the remote indicator on the status bar.
+    'statusBarItem.remoteBackground': darkBlue.hex(),
+    // 'Foreground color for the remote indicator on the status bar.
+    'statusBarItem.remoteForeground': lightBlue.hex(),
 
     /**
-     * Top bar:
+     * Title bar:
      */
-    'titleBar.activeBackground': blue.darken(0.4).hex(),
-    'titleBar.activeForeground': blue.lighten(0.2).hex(),
-    'titleBar.inactiveBackground': blue.darken(0.4).hex(),
-    'titleBar.inactiveForeground': lightGrey.hex(),
+    'titleBar.activeBackground': darkBlue.darken(0.2).hex(),
+    'titleBar.activeForeground': turquoise.hex(),
+    'titleBar.inactiveBackground': darkBlue.darken(0.2).hex(),
+    'titleBar.inactiveForeground': lightBlue.hex(),
+    'titleBar.border': darkBlue.hex(),
 
     /**
      * Badge
@@ -804,12 +833,11 @@ const theme = {
   tokenColors: [
     tokenColor('Punctuation', punctuation, blue.lighten(2)),
     tokenColor('Non-essentials', nonEssentials, blue.lighten(2)),
-    tokenColor('Annotations', jsts.annotations, blue.lighten(2)),
-    tokenColor('Literals', literals, orange),
+    tokenColor('Literals', literals, turquoise),
     tokenColor('Attention seekers', attentionSeekers, red),
     tokenColor('Operators', operators, blue.lighten(2)),
-    tokenColor('Function calls', functions, turquoise),
-    tokenColor('Defaults', defaults, blue.lighten(3)),
+    tokenColor('Function calls', functions, orange),
+    tokenColor('Defaults', defaults, foreground),
   ],
 };
 

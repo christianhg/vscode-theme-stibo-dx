@@ -99,11 +99,11 @@
     "tab.unfocusedInactiveModifiedBorder": "#111750",
     "editorPane.background": "#111750",
     "editor.background": "#141A5B",
-    "editor.foreground": "#C9CCF3",
+    "editor.foreground": "#CFEAF7",
     "editorLineNumber.foreground": "#6E77DF",
     "editorLineNumber.activeForeground": "#4DE8D1",
     "editorCursor.background": "#111750",
-    "editorCursor.foreground": "#FFFFFF",
+    "editorCursor.foreground": "#4DE8D1",
     "editor.selectionBackground": "#0E1240",
     "editor.selectionHighlightBackground": "#0E1240",
     "editor.findMatchBackground": "#4DE8D17F",
@@ -165,11 +165,25 @@
     "list.deemphasizedForeground": "#111750",
     "statusBar.background": "#0E1240",
     "statusBar.foreground": "#CFEAF7",
+    "statusBar.border": "#111750",
+    "statusBar.debuggingBackground": "#0E1240",
+    "statusBar.debuggingForeground": "#CFEAF7",
+    "statusBar.debuggingBorder": "#FF6242",
+    "statusBar.noFolderForeground": "#141A5B",
+    "statusBar.noFolderBackground": "#4DE8D1",
+    "statusBar.noFolderBorder": "#4DE8D1",
+    "statusBarItem.activeBackground": "#111750",
     "statusBarItem.hoverBackground": "#111750",
-    "titleBar.activeBackground": "#0C1037",
-    "titleBar.activeForeground": "#181F6D",
-    "titleBar.inactiveBackground": "#0C1037",
-    "titleBar.inactiveForeground": "#ABB2BF",
+    "statusBarItem.prominentForeground": "#4DE8D1",
+    "statusBarItem.prominentBackground": "#111750",
+    "statusBarItem.prominentHoverBackground": "#111750",
+    "statusBarItem.remoteBackground": "#111750",
+    "statusBarItem.remoteForeground": "#CFEAF7",
+    "titleBar.activeBackground": "#0E1240",
+    "titleBar.activeForeground": "#4DE8D1",
+    "titleBar.inactiveBackground": "#0E1240",
+    "titleBar.inactiveForeground": "#CFEAF7",
+    "titleBar.border": "#111750",
     "badge.foreground": "#4DE8D1",
     "badge.background": "#111750",
     "extensionButton.prominentForeground": "#141A5B",
@@ -254,21 +268,6 @@
       }
     },
     {
-      "name": "Annotations",
-      "scope": [
-        "cast.expr",
-        "entity.name.type.ts",
-        "keyword.operator.type",
-        "meta.return.type",
-        "meta.type.annotation",
-        "meta.type.parameters",
-        "support.type"
-      ],
-      "settings": {
-        "foreground": "#6E77DF"
-      }
-    },
-    {
       "name": "Literals",
       "scope": [
         "constant.language",
@@ -282,7 +281,7 @@
         "string.unquoted.plain.out.yaml"
       ],
       "settings": {
-        "foreground": "#FD983D"
+        "foreground": "#4DE8D1"
       }
     },
     {
@@ -336,7 +335,7 @@
         "support.function.misc.css"
       ],
       "settings": {
-        "foreground": "#4DE8D1"
+        "foreground": "#FD983D"
       }
     },
     {
@@ -363,7 +362,7 @@
         "entity.name.tag.yaml"
       ],
       "settings": {
-        "foreground": "#C9CCF3"
+        "foreground": "#CFEAF7"
       }
     }
   ]
