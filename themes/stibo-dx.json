@@ -110,6 +110,7 @@
     "editor.findMatchHighlightBackground": "#4DE8D17F",
     "editorLightBulb.foreground": "#4DE8D1",
     "editorLightBulbAutoFix.foreground": "#4DE8D1",
+    "editorBracketMatch.border": "#6E77DF",
     "editor.lineHighlightBackground": "#111750",
     "editorError.foreground": "#FF6242",
     "editorWarning.foreground": "#FD983D",

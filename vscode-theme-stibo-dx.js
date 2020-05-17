@@ -17,6 +17,7 @@ const white = color('#FFFFFF');
 
 const foreground = lightBlue;
 const background = blue;
+const tonedDown = blue.lighten(2);
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
@@ -79,6 +80,7 @@ const jsts = {
     'keyword.control.export',
     'meta.import',
   ],
+  nonEssentials: ['storage.type'],
 };
 
 const punctuation = [
@@ -99,6 +101,7 @@ const nonEssentials = [
   ...html.doctype,
   ...jsts.annotations,
   ...jsts.importexport,
+  // ...jsts.nonEssentials,
   ...scss.import,
   ...yaml.nonEssentials,
 ];
@@ -505,7 +508,7 @@ const theme = {
     'editorPane.background': darkBlue.hex(),
 
     /**
-     * Editor:
+     * Editor colors:
      */
     'editor.background': background.hex(),
     'editor.foreground': foreground.hex(),
@@ -554,6 +557,13 @@ const theme = {
     'editorLightBulb.foreground': turquoise.hex(),
     // The color used for the lightbulb auto fix actions icon.
     'editorLightBulbAutoFix.foreground': turquoise.hex(),
+    /**
+     * Bracket matchers
+     */
+    // Background color behind matching brackets.
+    // 'editorBracketMatch.background': darkBlue.hex(),
+    // Color for matching brackets boxes.
+    'editorBracketMatch.border': tonedDown.hex(),
 
     'editor.lineHighlightBackground': darkBlue.hex(),
 
