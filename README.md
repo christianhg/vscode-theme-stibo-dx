@@ -2,6 +2,8 @@
 
 [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/christianhg.vscode-theme-stibo-dx.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=christianhg.vscode-theme-stibo-dx)
 
+![Stibo DX logo](logo.gif)
+
 ## Development
 
 1. Clone the repo and open it in VS Code.
