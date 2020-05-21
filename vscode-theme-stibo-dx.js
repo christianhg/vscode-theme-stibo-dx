@@ -449,14 +449,14 @@ const theme = {
     // Color to separate multiple editor groups from each other.
     'editorGroup.border': darkBackground.hex(),
     // Background color when dragging editors around.
-    'editorGroup.dropBackground': darkBackground.hex(),
+    'editorGroup.dropBackground': background.lighten(0.2).hex(),
     // Background color of the editor group title header when Tabs are disabled (set "workbench.editor.showTabs": false).
     'editorGroupHeader.noTabsBackground': darkBackground.hex(),
     // Background color of the Tabs container.
     'editorGroupHeader.tabsBackground': darkBackground.hex(),
     // Border color below the editor tabs control when tabs are enabled.
-    'editorGroupHeader.tabsBorder': darkBackground.hex(),
-    // Border color between editor group header and editor (below breadrcumbs if 'enabled).
+    'editorGroupHeader.tabsBorder': blue.hex(),
+    // Border color between editor group header and editor (below breadcrumbs if enabled).
     'editorGroupHeader.border': blue.hex(),
     // Background color of an empty editor group.
     'editorGroup.emptyBackground': darkBackground.hex(),
@@ -473,9 +473,9 @@ const theme = {
     // Bottom border for the active tab.
     'tab.activeBorder': blue.hex(),
     // Bottom border for the active tab in an inactive editor group.
-    'tab.unfocusedActiveBorder': darkBackground.hex(),
+    'tab.unfocusedActiveBorder': background.hex(),
     // Top border for the active tab.
-    'tab.activeBorderTop': darkBackground.hex(),
+    'tab.activeBorderTop': contrast.hex(),
     // Top border for the active tab in an inactive editor group
     'tab.unfocusedActiveBorderTop': darkBackground.hex(),
     // Inactive Tab background color.
@@ -495,9 +495,9 @@ const theme = {
     // Tab foreground color when hovering
     'tab.hoverForeground': contrast.hex(),
     // Tab foreground color in an unfocused group when hovering
-    'tab.unfocusedHoverForeground': darkBackground.hex(),
+    'tab.unfocusedHoverForeground': contrast.hex(),
     // Border to highlight tabs when hovering
-    'tab.hoverBorder': darkBackground.hex(),
+    'tab.hoverBorder': blue.hex(),
     // Border to highlight tabs in an unfocused group when hovering
     'tab.unfocusedHoverBorder': darkBackground.hex(),
     // Border on the top of modified (dirty) active tabs in an active group.
@@ -640,16 +640,16 @@ const theme = {
     /**
      * Activity bar:
      */
-    'activityBar.background': darkBlue.darken(0.2).hex(),
-    'activityBar.dropBackground': darkBlue.darken(0.4).hex(),
+    'activityBar.background': darkBackground.hex(),
+    'activityBar.dropBackground': background.hex(),
     'activityBar.foreground': contrast.hex(),
     'activityBar.inactiveForeground': foreground.hex(),
-    'activityBar.border': darkBackground.hex(),
+    'activityBar.border': background.hex(),
     'activityBarBadge.background': contrast.hex(),
-    'activityBarBadge.foreground': darkBackground.hex(),
-    'activityBar.activeBorder': darkBlue.darken(0.2).hex(),
-    'activityBar.activeBackground': darkBlue.darken(0.2).hex(),
-    'activityBar.activeFocusBorder': foreground.hex(),
+    'activityBarBadge.foreground': blue.hex(),
+    'activityBar.activeBorder': darkBackground.hex(),
+    'activityBar.activeBackground': darkBackground.hex(),
+    'activityBar.activeFocusBorder': contrast.hex(),
 
     /**
      * Side bar:
@@ -714,33 +714,33 @@ const theme = {
      * The Status Bar is shown in the bottom of the workbench.
      */
     // 'Standard Status Bar background color.
-    'statusBar.background': darkBlue.darken(0.2).hex(),
+    'statusBar.background': darkBackground.hex(),
     // 'Status Bar foreground color.
     'statusBar.foreground': foreground.hex(),
     // 'Status Bar border color separating the Status Bar and editor.
-    'statusBar.border': darkBackground.hex(),
+    'statusBar.border': background.hex(),
     // 'Status Bar background color when a program is being debugged.
-    'statusBar.debuggingBackground': darkBlue.darken(0.2).hex(),
+    'statusBar.debuggingBackground': darkBackground.hex(),
     // 'Status Bar foreground color when a program is being debugged.
     'statusBar.debuggingForeground': foreground.hex(),
     // 'Status Bar border color separating the Status Bar and editor when a program is being debugged.
     'statusBar.debuggingBorder': red.hex(),
     // 'Status Bar foreground color when no folder is opened.
-    'statusBar.noFolderForeground': blue.hex(),
+    'statusBar.noFolderForeground': darkBackground.hex(),
     // 'Status Bar background color when no folder is opened.
-    'statusBar.noFolderBackground': contrast.hex(),
+    'statusBar.noFolderBackground': foreground.hex(),
     // 'Status Bar border color separating the Status Bar and editor when no folder is opened.
-    'statusBar.noFolderBorder': contrast.hex(),
+    'statusBar.noFolderBorder': blue.hex(),
     // 'Status Bar item background color when clicking.
-    'statusBarItem.activeBackground': darkBackground.hex(),
+    'statusBarItem.activeBackground': background.hex(),
     // 'Status Bar item background color when hovering.
-    'statusBarItem.hoverBackground': darkBackground.hex(),
+    'statusBarItem.hoverBackground': background.hex(),
     // 'Status Bar prominent items foreground color.
     'statusBarItem.prominentForeground': contrast.hex(),
     // 'Status Bar prominent items background color.
-    'statusBarItem.prominentBackground': darkBackground.hex(),
+    'statusBarItem.prominentBackground': background.hex(),
     // 'Status Bar prominent items background color when hovering.
-    'statusBarItem.prominentHoverBackground': darkBackground.hex(),
+    'statusBarItem.prominentHoverBackground': background.hex(),
     // 'Background color for the remote indicator on the status bar.
     'statusBarItem.remoteBackground': darkBackground.hex(),
     // 'Foreground color for the remote indicator on the status bar.
@@ -830,19 +830,19 @@ const theme = {
      * Panels are shown below the editor area and contain views like Output and Integrated Terminal.
      */
     // Panel background color.
-    'panel.background': darkBackground.hex(),
+    'panel.background': darkBackground.darken(0.2).hex(),
     // Panel border color to separate the panel from the editor.
     'panel.border': contrast.hex(),
     // Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
-    'panel.dropBackground': darkBlue.darken(0.2).hex(),
+    'panel.dropBackground': darkBackground.darken(0.2).hex(),
     // Border color for the active panel title.
-    'panelTitle.activeBorder': darkBackground.hex(),
+    'panelTitle.activeBorder': background.hex(),
     // Title color for the active panel.
     'panelTitle.activeForeground': contrast.hex(),
     // Title color for the inactive panel.
     'panelTitle.inactiveForeground': foreground.hex(),
     // Input box border for inputs in the panel.
-    'panelInput.border': darkBackground.hex(),
+    'panelInput.border': background.hex(),
   },
   tokenColors: [
     tokenColor('Punctuation', punctuation, darkForeground),
