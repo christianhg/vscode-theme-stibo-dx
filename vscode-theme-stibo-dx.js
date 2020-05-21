@@ -4,20 +4,24 @@ const jsonfile = require('jsonfile');
 const name = 'stibo-dx';
 const type = 'dark';
 
-// https://color.hailpixel.com/#111750,141A5B,4DE8D1,CFEAF7,FF6242,005D60,FD983D
-
-const blue = color('#141A5B');
+/**
+ * Colour pallette:
+ * https://color.hailpixel.com/#111750,141A5B,4DE8D1,CFEAF7,FF6242,005D60,FD983D
+ */
 const darkBlue = color('#111750');
-const lightBlue = color('#CFEAF7');
+const blue = color('#141A5B');
 const turquoise = color('#4DE8D1');
+const lightBlue = color('#CFEAF7');
 const red = color('#FF6242');
 const green = color('#005D60');
 const orange = color('#FD983D');
 const white = color('#FFFFFF');
 
 const foreground = lightBlue;
+const darkForeground = blue.lighten(2);
 const background = blue;
-const tonedDown = blue.lighten(2);
+const darkBackground = darkBlue;
+const contrast = turquoise;
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
@@ -227,7 +231,7 @@ const theme = {
      * Base colors
      */
     // Overall border color for focused elements. This color is only used if not overridden by a component.
-    focusBorder: darkBlue.hex(),
+    focusBorder: darkBackground.hex(),
     // Overall foreground color. This color is only used if not overridden by a component.
     foreground: foreground.hex(),
     // Shadow color of widgets such as Find/Replace inside the editor.
@@ -235,70 +239,70 @@ const theme = {
     // Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
     'selection.background': darkBlue.darken(0.2).hex(),
     // Foreground color for description text providing additional information, for example for a label.
-    descriptionForeground: turquoise.hex(),
+    descriptionForeground: contrast.hex(),
     // Overall foreground color for error messages (this color is only used if not overridden by a component).
     errorForeground: red.hex(),
     // The default color for icons in the workbench
-    'icon.foreground': turquoise.hex(),
+    'icon.foreground': contrast.hex(),
 
     /**
      * Window border
      * The theme colors for VS Code window border.
      */
     // Border color for the active (focused) window.
-    'window.activeBorder': turquoise.hex(),
+    'window.activeBorder': contrast.hex(),
     // Border color for the inactive (unfocused) windows.
-    'window.inactiveBorder': lightBlue.hex(),
+    'window.inactiveBorder': foreground.hex(),
 
     /**
      * Text colors
      * Colors inside a text document, such as the welcome page.
      */
     // Background color for block quotes in text.
-    'textBlockQuote.background': darkBlue.hex(),
+    'textBlockQuote.background': darkBackground.hex(),
     // Border color for block quotes in text.
-    'textBlockQuote.border': darkBlue.hex(),
+    'textBlockQuote.border': darkBackground.hex(),
     // Background color for code blocks in text.
-    'textCodeBlock.background': darkBlue.hex(),
+    'textCodeBlock.background': darkBackground.hex(),
     // Foreground color for links in text when clicked on and on mouse hover.
-    'textLink.activeForeground': turquoise.hex(),
+    'textLink.activeForeground': contrast.hex(),
     // Foreground color for links in text.
-    'textLink.foreground': turquoise.hex(),
+    'textLink.foreground': contrast.hex(),
     // Foreground color for preformatted text segments.
-    'textPreformat.foreground': turquoise.hex(),
+    'textPreformat.foreground': contrast.hex(),
     // Color for text separators
-    'textSeparator.foreground': turquoise.hex(),
+    'textSeparator.foreground': contrast.hex(),
 
     /**
      * Editor widget colors
      * The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
      */
     // Foreground color of editor widgets, such as find/replace.
-    'editorWidget.foreground': lightBlue.hex(),
+    'editorWidget.foreground': foreground.hex(),
     // Background color of editor widgets, such as Find/Replace.
     'editorWidget.background': darkBlue.darken(0.2).hex(),
     // Border color of the editor widget unless the widget does not contain a border or defines its own border color.
-    'editorWidget.border': turquoise.hex(),
+    'editorWidget.border': contrast.hex(),
     // Border color of the resize bar of editor widgets. The color is only used if the widget chooses to have a resize border and if the color is not overridden by a widget.
-    'editorWidget.resizeBorder': darkBlue.hex(),
+    'editorWidget.resizeBorder': darkBackground.hex(),
     // Background color of the suggestion widget.
-    'editorSuggestWidget.background': darkBlue.hex(),
+    'editorSuggestWidget.background': darkBackground.hex(),
     // Border color of the suggestion widget.
-    'editorSuggestWidget.border': darkBlue.hex(),
+    'editorSuggestWidget.border': darkBackground.hex(),
     // Foreground color of the suggestion widget.
-    'editorSuggestWidget.foreground': lightBlue.hex(),
+    'editorSuggestWidget.foreground': foreground.hex(),
     // Color of the match highlights in the suggestion widget.
-    'editorSuggestWidget.highlightForeground': turquoise.hex(),
+    'editorSuggestWidget.highlightForeground': contrast.hex(),
     // Background color of the selected entry in the suggestion widget.
     'editorSuggestWidget.selectedBackground': darkBlue.darken(0.2).hex(),
     // Foreground color of the editor hover.
-    'editorHoverWidget.foreground': turquoise.hex(),
+    'editorHoverWidget.foreground': contrast.hex(),
     // Background color of the editor hover.
     'editorHoverWidget.background': darkBlue.darken(0.2).hex(),
     // Border color of the editor hover.
-    'editorHoverWidget.border': darkBlue.hex(),
+    'editorHoverWidget.border': darkBackground.hex(),
     // Background color of the editor hover status bar.
-    'editorHoverWidget.statusBarBackground': darkBlue.hex(),
+    'editorHoverWidget.statusBarBackground': darkBackground.hex(),
 
     /**
      * The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
@@ -324,61 +328,61 @@ const theme = {
      * Buttons
      */
     // Button background color.
-    'button.background': darkBlue.hex(),
+    'button.background': darkBackground.hex(),
     // Button foreground color.
-    'button.foreground': turquoise.hex(),
+    'button.foreground': contrast.hex(),
     // Button background color when hovering.
     'button.hoverBackground': darkBlue.darken(0.2).hex(),
     // Background color of checkbox widget.
-    'checkbox.background': darkBlue.hex(),
+    'checkbox.background': darkBackground.hex(),
     // Foreground color of checkbox widget.
-    'checkbox.foreground': turquoise.hex(),
+    'checkbox.foreground': contrast.hex(),
     // Border color of checkbox widget.
-    'checkbox.border': lightBlue.hex(),
+    'checkbox.border': foreground.hex(),
 
     /**
      * Dropdown control
      * A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the Dropdown control is not used on macOS currently.
      */
     // Dropdown background.
-    'dropdown.background': darkBlue.hex(),
+    'dropdown.background': darkBackground.hex(),
     // Dropdown list background.
-    'dropdown.listBackground': darkBlue.hex(),
+    'dropdown.listBackground': darkBackground.hex(),
     // Dropdown border.
     'dropdown.border': darkBlue.darken(0.2).hex(),
     // Dropdown foreground
-    'dropdown.foreground': lightBlue.hex(),
+    'dropdown.foreground': foreground.hex(),
 
     /**
      * Input control
      * Colors for input controls such as in the Search view or the Find/Replace dialog.
      */
     // Input box background.
-    'input.background': darkBlue.hex(),
+    'input.background': darkBackground.hex(),
     // Input box border.
-    'input.border': darkBlue.hex(),
+    'input.border': darkBackground.hex(),
     // Input box foreground.
-    'input.foreground': lightBlue.hex(),
+    'input.foreground': foreground.hex(),
     // Input box foreground color for placeholder text.
-    'input.placeholderForeground': lightBlue.hex(),
+    'input.placeholderForeground': foreground.hex(),
     // Background color of activated options in input fields.
-    'inputOption.activeBackground': darkBlue.hex(),
+    'inputOption.activeBackground': darkBackground.hex(),
     // Border color of activated options in input fields.
-    'inputOption.activeBorder': lightBlue.hex(),
+    'inputOption.activeBorder': foreground.hex(),
     // Input validation background color for error severity.
-    'inputValidation.errorBackground': darkBlue.hex(),
+    'inputValidation.errorBackground': darkBackground.hex(),
     // Input validation foreground color for error severity.
     'inputValidation.errorForeground': red.hex(),
     // Input validation border color for error severity.
     'inputValidation.errorBorder': red.hex(),
     // Input validation background color for information severity.
-    'inputValidation.infoBackground': darkBlue.hex(),
+    'inputValidation.infoBackground': darkBackground.hex(),
     // Input validation foreground color for information severity.
-    'inputValidation.infoForeground': turquoise.hex(),
+    'inputValidation.infoForeground': contrast.hex(),
     // Input validation border color for information severity.
-    'inputValidation.infoBorder': turquoise.hex(),
+    'inputValidation.infoBorder': contrast.hex(),
     // Input validation background color for information warning.
-    'inputValidation.warningBackground': darkBlue.hex(),
+    'inputValidation.warningBackground': darkBackground.hex(),
     // Input validation foreground color for warning severity.
     'inputValidation.warningForeground': orange.hex(),
     // Input validation border color for warning severity
@@ -387,11 +391,11 @@ const theme = {
     /**
      * Breadcrumbs
      */
-    'breadcrumb.foreground': lightBlue.hex(),
-    'breadcrumb.background': darkBlue.hex(),
-    'breadcrumb.focusForeground': lightBlue.hex(),
-    'breadcrumb.activeSelectionForeground': lightBlue.hex(),
-    'breadcrumbPicker.background': darkBlue.hex(),
+    'breadcrumb.foreground': foreground.hex(),
+    'breadcrumb.background': darkBackground.hex(),
+    'breadcrumb.focusForeground': foreground.hex(),
+    'breadcrumb.activeSelectionForeground': foreground.hex(),
+    'breadcrumbPicker.background': darkBackground.hex(),
 
     /**
      * Scrollbar control
@@ -409,116 +413,116 @@ const theme = {
      * Progress bar
      */
     // Background color of the progress bar shown for long running operations.
-    'progressBar.background': turquoise.hex(),
+    'progressBar.background': contrast.hex(),
 
     /**
      * Minimap
      * The Minimap shows a minified version of the current file.
      */
     // // Highlight color for matches from search within files.
-    // 'minimap.findMatchHighlight': darkBlue.hex(),
+    // 'minimap.findMatchHighlight': darkBackground.hex(),
     // // Highlight color for the editor selection.
-    // 'minimap.selectionHighlight': darkBlue.hex(),
+    // 'minimap.selectionHighlight': darkBackground.hex(),
     // // Highlight color for errors within the editor.
-    // 'minimap.errorHighlight': darkBlue.hex(),
+    // 'minimap.errorHighlight': darkBackground.hex(),
     // // Highlight color for warnings within the editor.
-    // 'minimap.warningHighlight': darkBlue.hex(),
+    // 'minimap.warningHighlight': darkBackground.hex(),
     // // Minimap background color.
-    // 'minimap.background': darkBlue.hex(),
+    // 'minimap.background': darkBackground.hex(),
     // // Minimap slider background color.
-    // 'minimapSlider.background': darkBlue.hex(),
+    // 'minimapSlider.background': darkBackground.hex(),
     // // Minimap slider background color when hovering.
-    // 'minimapSlider.hoverBackground': darkBlue.hex(),
+    // 'minimapSlider.hoverBackground': darkBackground.hex(),
     // // Minimap slider background color when clicked on.
-    // 'minimapSlider.activeBackground': darkBlue.hex(),
+    // 'minimapSlider.activeBackground': darkBackground.hex(),
     // // Minimap gutter color for added content.
-    // 'minimapGutter.addedBackground': darkBlue.hex(),
+    // 'minimapGutter.addedBackground': darkBackground.hex(),
     // // Minimap gutter color for modified content.
-    // 'minimapGutter.modifiedBackground': darkBlue.hex(),
+    // 'minimapGutter.modifiedBackground': darkBackground.hex(),
     // // Minimap gutter color for deleted content
-    // 'minimapGutter.deletedBackground': darkBlue.hex(),
+    // 'minimapGutter.deletedBackground': darkBackground.hex(),
 
     /**
      * Editor Groups & Tabs
      * Editor Groups are the containers of editors. There can be many editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
      */
     // Color to separate multiple editor groups from each other.
-    'editorGroup.border': darkBlue.hex(),
+    'editorGroup.border': darkBackground.hex(),
     // Background color when dragging editors around.
-    'editorGroup.dropBackground': darkBlue.hex(),
+    'editorGroup.dropBackground': darkBackground.hex(),
     // Background color of the editor group title header when Tabs are disabled (set "workbench.editor.showTabs": false).
-    'editorGroupHeader.noTabsBackground': darkBlue.hex(),
+    'editorGroupHeader.noTabsBackground': darkBackground.hex(),
     // Background color of the Tabs container.
-    'editorGroupHeader.tabsBackground': darkBlue.hex(),
+    'editorGroupHeader.tabsBackground': darkBackground.hex(),
     // Border color below the editor tabs control when tabs are enabled.
-    'editorGroupHeader.tabsBorder': darkBlue.hex(),
+    'editorGroupHeader.tabsBorder': darkBackground.hex(),
     // Border color between editor group header and editor (below breadrcumbs if 'enabled).
     'editorGroupHeader.border': blue.hex(),
     // Background color of an empty editor group.
-    'editorGroup.emptyBackground': darkBlue.hex(),
+    'editorGroup.emptyBackground': darkBackground.hex(),
     // Border color of an empty editor group that is focused.
-    'editorGroup.focusedEmptyBorder': darkBlue.hex(),
+    'editorGroup.focusedEmptyBorder': darkBackground.hex(),
     // Active Tab background color in an active group.
     'tab.activeBackground': blue.hex(),
     // Active Tab background color in an inactive editor group.
     'tab.unfocusedActiveBackground': blue.hex(),
     // Active Tab foreground color in an active group.
-    'tab.activeForeground': turquoise.hex(),
+    'tab.activeForeground': contrast.hex(),
     // Border to separate Tabs from each other.
     'tab.border': blue.hex(),
     // Bottom border for the active tab.
     'tab.activeBorder': blue.hex(),
     // Bottom border for the active tab in an inactive editor group.
-    'tab.unfocusedActiveBorder': darkBlue.hex(),
+    'tab.unfocusedActiveBorder': darkBackground.hex(),
     // Top border for the active tab.
-    'tab.activeBorderTop': darkBlue.hex(),
+    'tab.activeBorderTop': darkBackground.hex(),
     // Top border for the active tab in an inactive editor group
-    'tab.unfocusedActiveBorderTop': darkBlue.hex(),
+    'tab.unfocusedActiveBorderTop': darkBackground.hex(),
     // Inactive Tab background color.
-    'tab.inactiveBackground': darkBlue.hex(),
+    'tab.inactiveBackground': darkBackground.hex(),
     // Inactive Tab background color in an unfocused group
-    'tab.unfocusedInactiveBackground': darkBlue.hex(),
+    'tab.unfocusedInactiveBackground': darkBackground.hex(),
     // Inactive Tab foreground color in an active group.
-    'tab.inactiveForeground': lightBlue.hex(),
+    'tab.inactiveForeground': foreground.hex(),
     // Active tab foreground color in an inactive editor group.
-    'tab.unfocusedActiveForeground': lightBlue.hex(),
+    'tab.unfocusedActiveForeground': foreground.hex(),
     // Inactive tab foreground color in an inactive editor group.
-    'tab.unfocusedInactiveForeground': lightBlue.hex(),
+    'tab.unfocusedInactiveForeground': foreground.hex(),
     // Tab background color when hovering
     'tab.hoverBackground': blue.hex(),
     // Tab background color in an unfocused group when hovering
-    'tab.unfocusedHoverBackground': darkBlue.hex(),
+    'tab.unfocusedHoverBackground': darkBackground.hex(),
     // Tab foreground color when hovering
-    'tab.hoverForeground': turquoise.hex(),
+    'tab.hoverForeground': contrast.hex(),
     // Tab foreground color in an unfocused group when hovering
-    'tab.unfocusedHoverForeground': darkBlue.hex(),
+    'tab.unfocusedHoverForeground': darkBackground.hex(),
     // Border to highlight tabs when hovering
-    'tab.hoverBorder': darkBlue.hex(),
+    'tab.hoverBorder': darkBackground.hex(),
     // Border to highlight tabs in an unfocused group when hovering
-    'tab.unfocusedHoverBorder': darkBlue.hex(),
+    'tab.unfocusedHoverBorder': darkBackground.hex(),
     // Border on the top of modified (dirty) active tabs in an active group.
-    'tab.activeModifiedBorder': darkBlue.hex(),
+    'tab.activeModifiedBorder': darkBackground.hex(),
     // Border on the top of modified (dirty) inactive tabs in an active group.
-    'tab.inactiveModifiedBorder': darkBlue.hex(),
+    'tab.inactiveModifiedBorder': darkBackground.hex(),
     // Border on the top of modified (dirty) active tabs in an unfocused group.
-    'tab.unfocusedActiveModifiedBorder': darkBlue.hex(),
+    'tab.unfocusedActiveModifiedBorder': darkBackground.hex(),
     // Border on the top of modified (dirty) inactive tabs in an unfocused group.
-    'tab.unfocusedInactiveModifiedBorder': darkBlue.hex(),
+    'tab.unfocusedInactiveModifiedBorder': darkBackground.hex(),
     // Background color of the editor pane visible on the left and right side of the 'centered editor layout.
-    'editorPane.background': darkBlue.hex(),
+    'editorPane.background': darkBackground.hex(),
 
     /**
      * Editor colors:
      */
     'editor.background': background.hex(),
     'editor.foreground': foreground.hex(),
-    'editorLineNumber.foreground': blue.lighten(2).hex(),
+    'editorLineNumber.foreground': darkForeground.hex(),
     // Color of the active editor line number.
-    'editorLineNumber.activeForeground': turquoise.hex(),
+    'editorLineNumber.activeForeground': contrast.hex(),
     // The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
-    'editorCursor.background': darkBlue.hex(),
+    'editorCursor.background': darkBackground.hex(),
     // Color of the editor cursor.
-    'editorCursor.foreground': turquoise.hex(),
+    'editorCursor.foreground': contrast.hex(),
     'editor.selectionBackground': darkBlue.darken(0.2).hex(),
     // Color of the selected text for high contrast.
     // 'editor.selectionForeground':
@@ -554,18 +558,18 @@ const theme = {
      * Lightbulb
      */
     // The color used for the lightbulb actions icon.
-    'editorLightBulb.foreground': turquoise.hex(),
+    'editorLightBulb.foreground': contrast.hex(),
     // The color used for the lightbulb auto fix actions icon.
-    'editorLightBulbAutoFix.foreground': turquoise.hex(),
+    'editorLightBulbAutoFix.foreground': contrast.hex(),
     /**
      * Bracket matchers
      */
     // Background color behind matching brackets.
-    // 'editorBracketMatch.background': darkBlue.hex(),
+    // 'editorBracketMatch.background': darkBackground.hex(),
     // Color for matching brackets boxes.
-    'editorBracketMatch.border': tonedDown.hex(),
+    'editorBracketMatch.border': darkForeground.hex(),
 
-    'editor.lineHighlightBackground': darkBlue.hex(),
+    'editor.lineHighlightBackground': darkBackground.hex(),
 
     /**
      * Errors and warnings
@@ -579,19 +583,19 @@ const theme = {
     // Border color of warning boxes in the editor.
     // 'editorWarning.border': orange.hex(),
     // Foreground color of info squiggles in the editor.
-    'editorInfo.foreground': lightBlue.hex(),
+    'editorInfo.foreground': foreground.hex(),
     // Border color of info boxes in the editor.
-    // 'editorInfo.border': lightBlue.hex(),
+    // 'editorInfo.border': foreground.hex(),
     // Foreground color of hints in the editor.
-    'editorHint.foreground': turquoise.hex(),
+    'editorHint.foreground': contrast.hex(),
     // Border color of hint boxes in the editor.
-    'editorHint.border': turquoise.hex(),
+    'editorHint.border': contrast.hex(),
     // The color used for the problems error icon.
     'problemsErrorIcon.foreground': red.hex(),
     // The color used for the problems warning icon.
     'problemsWarningIcon.foreground': orange.hex(),
     // The color used for the problems info icon.
-    'problemsInfoIcon.foreground': lightBlue.hex(),
+    'problemsInfoIcon.foreground': foreground.hex(),
 
     /**
      * The gutter contains the glyph margins and the line numbers:
@@ -601,30 +605,30 @@ const theme = {
     // Editor gutter background color for lines that are modified.
     'editorGutter.modifiedBackground': orange.hex(),
     // Editor gutter background color for lines that are added.
-    'editorGutter.addedBackground': turquoise.hex(),
+    'editorGutter.addedBackground': contrast.hex(),
     // Editor gutter background color for lines that are deleted.
     'editorGutter.deletedBackground': red.hex(),
     // Editor gutter decoration color for commenting ranges.
-    // 'editorGutter.commentRangeForeground': darkBlue.hex(),
+    // 'editorGutter.commentRangeForeground': darkBackground.hex(),
     // Color of the folding control in the editor gutter.
-    'editorGutter.foldingControlForeground': turquoise.hex(),
+    'editorGutter.foldingControlForeground': contrast.hex(),
 
     /**
      * Diff editor colors
      * For coloring inserted and removed text, use either a background or a border color but not both.
      */
     // Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.
-    // 'diffEditor.insertedTextBackground': darkBlue.hex(),
+    // 'diffEditor.insertedTextBackground': darkBackground.hex(),
     // Outline color for the text that got inserted.
-    // 'diffEditor.insertedTextBorder': darkBlue.hex(),
+    // 'diffEditor.insertedTextBorder': darkBackground.hex(),
     // Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
     // 'diffEditor.removedTextBackground': red.hex(),
     // Outline color for text that got removed.
-    // 'diffEditor.removedTextBorder': darkBlue.hex(),
+    // 'diffEditor.removedTextBorder': darkBackground.hex(),
     // Border color between the two text editors.
-    // 'diffEditor.border': darkBlue.hex(),
+    // 'diffEditor.border': darkBackground.hex(),
     // Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views
-    // 'diffEditor.diagonalFill': darkBlue.hex(),
+    // 'diffEditor.diagonalFill': darkBackground.hex(),
 
     /**
      * Input fields:
@@ -638,26 +642,26 @@ const theme = {
      */
     'activityBar.background': darkBlue.darken(0.2).hex(),
     'activityBar.dropBackground': darkBlue.darken(0.4).hex(),
-    'activityBar.foreground': turquoise.hex(),
-    'activityBar.inactiveForeground': lightBlue.hex(),
-    'activityBar.border': darkBlue.hex(),
-    'activityBarBadge.background': turquoise.hex(),
-    'activityBarBadge.foreground': darkBlue.hex(),
+    'activityBar.foreground': contrast.hex(),
+    'activityBar.inactiveForeground': foreground.hex(),
+    'activityBar.border': darkBackground.hex(),
+    'activityBarBadge.background': contrast.hex(),
+    'activityBarBadge.foreground': darkBackground.hex(),
     'activityBar.activeBorder': darkBlue.darken(0.2).hex(),
     'activityBar.activeBackground': darkBlue.darken(0.2).hex(),
-    'activityBar.activeFocusBorder': lightBlue.hex(),
+    'activityBar.activeFocusBorder': foreground.hex(),
 
     /**
      * Side bar:
      */
-    'sideBar.background': darkBlue.hex(),
-    'sideBar.foreground': lightBlue.hex(),
-    'sideBar.border': darkBlue.hex(),
+    'sideBar.background': darkBackground.hex(),
+    'sideBar.foreground': foreground.hex(),
+    'sideBar.border': darkBackground.hex(),
     'sideBar.dropBackground': darkBlue.darken(0.2).hex(),
-    'sideBarTitle.foreground': lightBlue.hex(),
+    'sideBarTitle.foreground': foreground.hex(),
     'sideBarSectionHeader.background': darkBlue.darken(0.2).hex(),
-    'sideBarSectionHeader.foreground': lightBlue.hex(),
-    'sideBarSectionHeader.border': darkBlue.hex(),
+    'sideBarSectionHeader.foreground': foreground.hex(),
+    'sideBarSectionHeader.border': darkBackground.hex(),
 
     /**
      * Lists and trees:
@@ -665,25 +669,25 @@ const theme = {
     // List/Tree background color for the selected item when the list/tree is active.
     'list.activeSelectionBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground color for the selected item when the list/tree is active.
-    'list.activeSelectionForeground': turquoise.hex(),
+    'list.activeSelectionForeground': contrast.hex(),
     // List/Tree drag and drop background when moving items around using the mouse.
-    'list.dropBackground': darkBlue.hex(),
+    'list.dropBackground': darkBackground.hex(),
     // List/Tree background color for the focused item when the list/tree is active.
     'list.focusBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
-    'list.focusForeground': turquoise.hex(),
+    'list.focusForeground': contrast.hex(),
     // List/Tree foreground color of the match highlights when searching inside the list/tree.
-    'list.highlightForeground': turquoise.hex(),
+    'list.highlightForeground': contrast.hex(),
     // List/Tree background when hovering over items using the mouse.
     'list.hoverBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground when hovering over items using the mouse.
-    'list.hoverForeground': turquoise.hex(),
+    'list.hoverForeground': contrast.hex(),
     // List/Tree background color for the selected item when the list/tree is inactive.
     'list.inactiveSelectionBackground': darkBlue.darken(0.2).hex(),
     // List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
-    'list.inactiveSelectionForeground': turquoise.hex(),
+    'list.inactiveSelectionForeground': contrast.hex(),
     // List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
-    'list.inactiveFocusBackground': darkBlue.hex(),
+    'list.inactiveFocusBackground': darkBackground.hex(),
     // List/Tree foreground color for invalid items, for example an unresolved root in explorer.
     'list.invalidItemForeground': red.hex(),
     // Foreground color of list items containing errors.
@@ -691,19 +695,19 @@ const theme = {
     // Foreground color of list items containing warnings.
     'list.warningForeground': orange.hex(),
     // List/Tree Filter background color of typed text when searching inside the list/tree.
-    'listFilterWidget.background': darkBlue.hex(),
+    'listFilterWidget.background': darkBackground.hex(),
     // List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
-    'listFilterWidget.outline': darkBlue.hex(),
+    'listFilterWidget.outline': darkBackground.hex(),
     // List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
     'listFilterWidget.noMatchesOutline': red.hex(),
     // Background color of the filtered matches in lists and trees.
     'list.filterMatchBackground': darkBlue.darken(0.2).hex(),
     // Border color of the filtered matches in lists and trees.
-    'list.filterMatchBorder': lightBlue.hex(),
+    'list.filterMatchBorder': foreground.hex(),
     // Tree Widget's stroke color for indent guides.
-    'tree.indentGuidesStroke': darkBlue.hex(),
+    'tree.indentGuidesStroke': darkBackground.hex(),
     // List/Tree foreground color for items that are deemphasized.
-    'list.deemphasizedForeground': darkBlue.hex(),
+    'list.deemphasizedForeground': darkBackground.hex(),
 
     /**
      * Status Bar colors
@@ -712,53 +716,53 @@ const theme = {
     // 'Standard Status Bar background color.
     'statusBar.background': darkBlue.darken(0.2).hex(),
     // 'Status Bar foreground color.
-    'statusBar.foreground': lightBlue.hex(),
+    'statusBar.foreground': foreground.hex(),
     // 'Status Bar border color separating the Status Bar and editor.
-    'statusBar.border': darkBlue.hex(),
+    'statusBar.border': darkBackground.hex(),
     // 'Status Bar background color when a program is being debugged.
     'statusBar.debuggingBackground': darkBlue.darken(0.2).hex(),
     // 'Status Bar foreground color when a program is being debugged.
-    'statusBar.debuggingForeground': lightBlue.hex(),
+    'statusBar.debuggingForeground': foreground.hex(),
     // 'Status Bar border color separating the Status Bar and editor when a program is being debugged.
     'statusBar.debuggingBorder': red.hex(),
     // 'Status Bar foreground color when no folder is opened.
     'statusBar.noFolderForeground': blue.hex(),
     // 'Status Bar background color when no folder is opened.
-    'statusBar.noFolderBackground': turquoise.hex(),
+    'statusBar.noFolderBackground': contrast.hex(),
     // 'Status Bar border color separating the Status Bar and editor when no folder is opened.
-    'statusBar.noFolderBorder': turquoise.hex(),
+    'statusBar.noFolderBorder': contrast.hex(),
     // 'Status Bar item background color when clicking.
-    'statusBarItem.activeBackground': darkBlue.hex(),
+    'statusBarItem.activeBackground': darkBackground.hex(),
     // 'Status Bar item background color when hovering.
-    'statusBarItem.hoverBackground': darkBlue.hex(),
+    'statusBarItem.hoverBackground': darkBackground.hex(),
     // 'Status Bar prominent items foreground color.
-    'statusBarItem.prominentForeground': turquoise.hex(),
+    'statusBarItem.prominentForeground': contrast.hex(),
     // 'Status Bar prominent items background color.
-    'statusBarItem.prominentBackground': darkBlue.hex(),
+    'statusBarItem.prominentBackground': darkBackground.hex(),
     // 'Status Bar prominent items background color when hovering.
-    'statusBarItem.prominentHoverBackground': darkBlue.hex(),
+    'statusBarItem.prominentHoverBackground': darkBackground.hex(),
     // 'Background color for the remote indicator on the status bar.
-    'statusBarItem.remoteBackground': darkBlue.hex(),
+    'statusBarItem.remoteBackground': darkBackground.hex(),
     // 'Foreground color for the remote indicator on the status bar.
-    'statusBarItem.remoteForeground': lightBlue.hex(),
+    'statusBarItem.remoteForeground': foreground.hex(),
 
     /**
      * Title bar:
      */
     'titleBar.activeBackground': darkBlue.darken(0.2).hex(),
-    'titleBar.activeForeground': turquoise.hex(),
+    'titleBar.activeForeground': contrast.hex(),
     'titleBar.inactiveBackground': darkBlue.darken(0.2).hex(),
-    'titleBar.inactiveForeground': lightBlue.hex(),
-    'titleBar.border': darkBlue.hex(),
+    'titleBar.inactiveForeground': foreground.hex(),
+    'titleBar.border': darkBackground.hex(),
 
     /**
      * Badge
      * Badges are small information labels, for example, search results count.
      */
     // Badge foreground color.
-    'badge.foreground': turquoise.hex(),
+    'badge.foreground': contrast.hex(),
     // Badge background color.
-    'badge.background': darkBlue.hex(),
+    'badge.background': darkBackground.hex(),
 
     /**
      * Extensions
@@ -766,11 +770,11 @@ const theme = {
     // Extension view button foreground color (for example Install button).
     'extensionButton.prominentForeground': blue.hex(),
     // Extension view button background color.
-    'extensionButton.prominentBackground': turquoise.hex(),
+    'extensionButton.prominentBackground': contrast.hex(),
     // Extension view button background hover color.
     'extensionButton.prominentHoverBackground': turquoise.darken(0.2).hex(),
     // Background color for the remote badge in the extensions view.
-    'extensionBadge.remoteBackground': turquoise.hex(),
+    'extensionBadge.remoteBackground': contrast.hex(),
     // Foreground color for the remote badge in the extensions view.
     'extensionBadge.remoteForeground': blue.hex(),
 
@@ -778,26 +782,26 @@ const theme = {
      * Quick picker
      */
     // Quick picker (Quick Open) color for grouping borders.
-    'pickerGroup.border': darkBlue.hex(),
+    'pickerGroup.border': darkBackground.hex(),
     // Quick picker (Quick Open) color for grouping labels.
-    'pickerGroup.foreground': lightBlue.hex(),
+    'pickerGroup.foreground': foreground.hex(),
     // Quick input background color. The quick input widget is the container for views like the color theme picker.
-    'quickInput.background': darkBlue.hex(),
+    'quickInput.background': darkBackground.hex(),
     // Quick input foreground color. The quick input widget is the container for views like the color theme picker.
-    'quickInput.foreground': lightBlue.hex(),
+    'quickInput.foreground': foreground.hex(),
     // Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette
-    'quickInputTitle.background': darkBlue.hex(),
+    'quickInputTitle.background': darkBackground.hex(),
 
     /**
      * Peek view colors
      * Peek views are used to show references and declarations as a view inside the editor.
      */
     // Color of the peek view borders and arrow.
-    'peekView.border': turquoise.hex(),
+    'peekView.border': contrast.hex(),
     // Background color of the peek view editor.
-    'peekViewEditor.background': darkBlue.hex(),
+    'peekViewEditor.background': darkBackground.hex(),
     // Background color of the gutter in the peek view editor.
-    'peekViewEditorGutter.background': darkBlue.hex(),
+    'peekViewEditorGutter.background': darkBackground.hex(),
     // Match highlight color in the peek view editor.
     'peekViewEditor.matchHighlightBackground': darkBlue.darken(0.2).hex(),
     // Match highlight border color in the peek view editor.
@@ -805,47 +809,47 @@ const theme = {
     // Background color of the peek view result list.
     'peekViewResult.background': darkBlue.darken(0.2).hex(),
     // Foreground color for file nodes in the peek view result list.
-    'peekViewResult.fileForeground': lightBlue.hex(),
+    'peekViewResult.fileForeground': foreground.hex(),
     // Foreground color for line nodes in the peek view result list.
-    'peekViewResult.lineForeground': lightBlue.hex(),
+    'peekViewResult.lineForeground': foreground.hex(),
     // Match highlight color in the peek view result list.
-    'peekViewResult.matchHighlightBackground': darkBlue.hex(),
+    'peekViewResult.matchHighlightBackground': darkBackground.hex(),
     // Background color of the selected entry in the peek view result list.
     'peekViewResult.selectionBackground': darkBlue.darken(0.4).hex(),
     // Foreground color of the selected entry in the peek view result list.
-    'peekViewResult.selectionForeground': turquoise.hex(),
+    'peekViewResult.selectionForeground': contrast.hex(),
     // Background color of the peek view title area.
-    'peekViewTitle.background': darkBlue.hex(),
+    'peekViewTitle.background': darkBackground.hex(),
     // Color of the peek view title info.
-    'peekViewTitleDescription.foreground': lightBlue.hex(),
+    'peekViewTitleDescription.foreground': foreground.hex(),
     // Color of the peek view title
-    'peekViewTitleLabel.foreground': lightBlue.hex(),
+    'peekViewTitleLabel.foreground': foreground.hex(),
 
     /**
      * Panel colors
      * Panels are shown below the editor area and contain views like Output and Integrated Terminal.
      */
     // Panel background color.
-    'panel.background': darkBlue.hex(),
+    'panel.background': darkBackground.hex(),
     // Panel border color to separate the panel from the editor.
-    'panel.border': turquoise.hex(),
+    'panel.border': contrast.hex(),
     // Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
     'panel.dropBackground': darkBlue.darken(0.2).hex(),
     // Border color for the active panel title.
-    'panelTitle.activeBorder': darkBlue.hex(),
+    'panelTitle.activeBorder': darkBackground.hex(),
     // Title color for the active panel.
-    'panelTitle.activeForeground': turquoise.hex(),
+    'panelTitle.activeForeground': contrast.hex(),
     // Title color for the inactive panel.
-    'panelTitle.inactiveForeground': lightBlue.hex(),
+    'panelTitle.inactiveForeground': foreground.hex(),
     // Input box border for inputs in the panel.
-    'panelInput.border': darkBlue.hex(),
+    'panelInput.border': darkBackground.hex(),
   },
   tokenColors: [
-    tokenColor('Punctuation', punctuation, blue.lighten(2)),
-    tokenColor('Non-essentials', nonEssentials, blue.lighten(2)),
-    tokenColor('Literals', literals, turquoise),
+    tokenColor('Punctuation', punctuation, darkForeground),
+    tokenColor('Non-essentials', nonEssentials, darkForeground),
+    tokenColor('Literals', literals, contrast),
     tokenColor('Attention seekers', attentionSeekers, red),
-    tokenColor('Operators', operators, blue.lighten(2)),
+    tokenColor('Operators', operators, darkForeground),
     tokenColor('Function calls', functions, orange),
     tokenColor('Defaults', defaults, foreground),
   ],
