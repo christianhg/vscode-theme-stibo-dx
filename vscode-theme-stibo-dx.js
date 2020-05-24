@@ -25,40 +25,27 @@ const contrast = turquoise;
 
 const css = {
   attentionSeekers: ['meta.function.variable.css', 'variable.css'],
-  functions: ['support.function.misc.css'],
   defaults: [
     'punctuation.section.function.begin.bracket.round.css',
     'punctuation.section.function.end.bracket.round.css',
     'support.type.vendored.property-name.css',
   ],
-  nonEssentials: ['punctuation.definition.entity.css'],
+  functions: ['support.function.misc.css'],
+  literals: [],
+  nonEssentials: ['keyword.control.at-rule.import'],
+  punctuation: ['punctuation.definition.entity.css'],
 };
 
 const html = {
-  doctype: ['meta.tag.metadata.doctype.html'],
-};
-
-const scss = {
-  import: ['keyword.control.at-rule.import'],
+  attentionSeekers: [],
+  default: [],
+  functions: [],
+  literals: [],
+  nonEssentials: ['meta.tag.metadata.doctype.html'],
+  punctuation: ['punctuation.definition.tag'],
 };
 
 const yaml = {
-  nonEssentials: [
-    'punctuation.definition.block.sequence.item.yaml',
-    'punctuation.definition.sequence.begin.yaml',
-    'punctuation.definition.sequence.end.yaml',
-    'punctuation.definition.mapping.begin.yaml',
-    'punctuation.definition.mapping.end.yaml',
-    'keyword.control.flow.block-scalar.folded.yaml',
-    'keyword.control.flow.block-scalar.literal.yaml',
-    'entity.other.document.begin.yaml',
-  ],
-  literals: [
-    'constant.other.timestamp.yaml',
-    'string.unquoted.block.yaml',
-    'string.unquoted.plain.in.yaml',
-    'string.unquoted.plain.out.yaml',
-  ],
   attentionSeekers: [
     'punctuation.definition.anchor.yaml',
     'entity.name.type.anchor.yaml',
@@ -66,10 +53,33 @@ const yaml = {
     'variable.other.alias.yaml',
   ],
   defaults: ['entity.name.tag.yaml'],
+  functions: [],
+  literals: [
+    'constant.other.timestamp.yaml',
+    'string.unquoted.block.yaml',
+    'string.unquoted.plain.in.yaml',
+    'string.unquoted.plain.out.yaml',
+  ],
+  nonEssentials: [
+    'keyword.control.flow.block-scalar.folded.yaml',
+    'keyword.control.flow.block-scalar.literal.yaml',
+    'entity.other.document.begin.yaml',
+  ],
+  punctuation: [
+    'punctuation.definition.block.sequence.item.yaml',
+    'punctuation.definition.sequence.begin.yaml',
+    'punctuation.definition.sequence.end.yaml',
+    'punctuation.definition.mapping.begin.yaml',
+    'punctuation.definition.mapping.end.yaml',
+  ],
 };
 
 const jsts = {
-  annotations: [
+  attentionSeekers: ['variable.other.jsdoc', 'storage.type.class.jsdoc'],
+  defaults: ['storage.type.function'],
+  operators: ['keyword.operator.expression.typeof'],
+  nonEssentials: [
+    // Annotations:
     'cast.expr',
     'entity.name.type.ts',
     'keyword.operator.type',
@@ -77,17 +87,31 @@ const jsts = {
     'meta.type.annotation',
     'meta.type.parameters',
     'support.type',
-  ],
-  importexport: [
+
+    // import/export:
     'constant.language.import-export-all.ts',
     'keyword.control.as',
     'keyword.control.export',
     'meta.import',
+
+    // Misc:
+    'storage.type',
   ],
-  nonEssentials: ['storage.type'],
+};
+
+const python = {
+  defaults: ['support.type.exception.python'],
+};
+
+const shell = {
+  defaults: ['storage.type.function.shell'],
 };
 
 const punctuation = [
+  ...css.punctuation,
+  ...html.punctuation,
+  ...yaml.punctuation,
+
   'punctuation.section.property-list.begin.bracket.curly',
   'punctuation.section.property-list.end.bracket.curly',
   'punctuation.terminator.rule',
@@ -102,12 +126,11 @@ const punctuation = [
 
 const nonEssentials = [
   ...css.nonEssentials,
-  ...html.doctype,
-  ...jsts.annotations,
-  ...jsts.importexport,
-  // ...jsts.nonEssentials,
-  ...scss.import,
+  ...html.nonEssentials,
+  ...jsts.nonEssentials,
   ...yaml.nonEssentials,
+
+  'keyword.control.import',
 ];
 
 const literals = [
@@ -121,6 +144,8 @@ const literals = [
 ];
 
 const operators = [
+  ...jsts.operators,
+
   'keyword.operator.arithmetic',
   'keyword.operator.assignment',
   'keyword.operator.comparison',
@@ -150,8 +175,6 @@ const attentionSeekers = [
   'keyword.other.important',
   'variable.language.super',
   'variable.language.this',
-  'variable.other.jsdoc',
-  'storage.type.class.jsdoc',
 
   ...css.attentionSeekers,
   ...yaml.attentionSeekers,
@@ -201,13 +224,19 @@ const defaults = [
   'meta.array.literal',
   'meta.arrow',
   'meta.definition.property',
+  'meta.function-call.arguments',
   'meta.objectliteral',
+  'punctuation.definition.arguments.begin',
+  'punctuation.definition.arguments.end',
   'support.constant',
   'support.type.property-name',
   'variable.object.property',
   'variable.other',
 
   ...css.defaults,
+  ...jsts.defaults,
+  ...python.defaults,
+  ...shell.defaults,
   ...yaml.defaults,
 ];
 

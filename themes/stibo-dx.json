@@ -223,6 +223,13 @@
     {
       "name": "Punctuation",
       "scope": [
+        "punctuation.definition.entity.css",
+        "punctuation.definition.tag",
+        "punctuation.definition.block.sequence.item.yaml",
+        "punctuation.definition.sequence.begin.yaml",
+        "punctuation.definition.sequence.end.yaml",
+        "punctuation.definition.mapping.begin.yaml",
+        "punctuation.definition.mapping.end.yaml",
         "punctuation.section.property-list.begin.bracket.curly",
         "punctuation.section.property-list.end.bracket.curly",
         "punctuation.terminator.rule",
@@ -241,7 +248,7 @@
     {
       "name": "Non-essentials",
       "scope": [
-        "punctuation.definition.entity.css",
+        "keyword.control.at-rule.import",
         "meta.tag.metadata.doctype.html",
         "cast.expr",
         "entity.name.type.ts",
@@ -254,15 +261,11 @@
         "keyword.control.as",
         "keyword.control.export",
         "meta.import",
-        "keyword.control.at-rule.import",
-        "punctuation.definition.block.sequence.item.yaml",
-        "punctuation.definition.sequence.begin.yaml",
-        "punctuation.definition.sequence.end.yaml",
-        "punctuation.definition.mapping.begin.yaml",
-        "punctuation.definition.mapping.end.yaml",
+        "storage.type",
         "keyword.control.flow.block-scalar.folded.yaml",
         "keyword.control.flow.block-scalar.literal.yaml",
-        "entity.other.document.begin.yaml"
+        "entity.other.document.begin.yaml",
+        "keyword.control.import"
       ],
       "settings": {
         "foreground": "#6E77DF"
@@ -293,8 +296,6 @@
         "keyword.other.important",
         "variable.language.super",
         "variable.language.this",
-        "variable.other.jsdoc",
-        "storage.type.class.jsdoc",
         "meta.function.variable.css",
         "variable.css",
         "punctuation.definition.anchor.yaml",
@@ -309,6 +310,7 @@
     {
       "name": "Operators",
       "scope": [
+        "keyword.operator.expression.typeof",
         "keyword.operator.arithmetic",
         "keyword.operator.assignment",
         "keyword.operator.comparison",
@@ -352,7 +354,10 @@
         "meta.array.literal",
         "meta.arrow",
         "meta.definition.property",
+        "meta.function-call.arguments",
         "meta.objectliteral",
+        "punctuation.definition.arguments.begin",
+        "punctuation.definition.arguments.end",
         "support.constant",
         "support.type.property-name",
         "variable.object.property",
@@ -360,6 +365,9 @@
         "punctuation.section.function.begin.bracket.round.css",
         "punctuation.section.function.end.bracket.round.css",
         "support.type.vendored.property-name.css",
+        "storage.type.function",
+        "support.type.exception.python",
+        "storage.type.function.shell",
         "entity.name.tag.yaml"
       ],
       "settings": {
