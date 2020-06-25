@@ -6,6 +6,10 @@
 
 ![Stibo DX logo](logo.gif)
 
+## Screenshot
+
+![Screenshot](assets/screenshot.png)
+
 ## Development
 
 1. Clone the repo and open it in VS Code.
